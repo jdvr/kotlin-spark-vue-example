@@ -3,17 +3,17 @@ require('./check-versions')();
 process.env.NODE_ENV = 'development';
 
 const ora = require('ora');
-const rm = require('rimraf');
+const rimraf = require('rimraf');
 const path = require('path');
 const chalk = require('chalk');
 const webpack = require('webpack');
 const config = require('../config');
-const webpackConfig = require('./webpack.prod.conf');
+const webpackConfig = require('./webpack.conf');
 
 const spinner = ora('building...');
 spinner.start();
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+rimraf(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err;
   webpack(webpackConfig, function (err, stats) {
     spinner.stop();
