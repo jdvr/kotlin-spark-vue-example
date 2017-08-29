@@ -6,3 +6,4 @@ npm-debug.log*
 out/
 build/
 .gradle
+src/main/resources/static/index.html
